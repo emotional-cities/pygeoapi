@@ -37,20 +37,27 @@ services:
     build: ./ES
 
     container_name: elastic
+
     environment:
-      - bootstrap.memory_lock=true
+      - xpack.security.enabled=false
       - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
-      - cluster.routing.allocation.disk.threshold_enabled=false
     ulimits:
-        memlock:
-            soft: -1
-            hard: -1
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+
     ports:
       - 9300:9300
       - 9200:9200
     volumes:
       - elastic_search_data:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
 
 volumes:
   elastic_search_data: {}
