@@ -41,6 +41,8 @@ USER root
 COPY docker-entrypoint.sh  /docker-entrypoint.sh
 COPY add_data.sh /add_data.sh
 
+COPY ./data/* ${DATA_FOLDER}/
+
 RUN yum install -y wget
 
 RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O bin/wait-for-it.sh
