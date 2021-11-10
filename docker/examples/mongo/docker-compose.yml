@@ -45,7 +45,11 @@ services:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./pygeoapi/mongo-entrypoint.sh:/mongo-entrypoint.sh
       - ./pygeoapi/wait-for-mongo.sh:/wait-for-mongo.sh
+<<<<<<< HEAD
 
+=======
+      - datavolume:/pygeoapi/tests/data
+>>>>>>> ab163b2d14b2341eaa3d36d4b164bae6f096a9a8
     links:
       - mongo
 
@@ -53,12 +57,17 @@ services:
       - mongo
 
   mongo:
+<<<<<<< HEAD
     image: mongo
     #restart: always
+=======
+    image: mongo:5.0.3
+>>>>>>> ab163b2d14b2341eaa3d36d4b164bae6f096a9a8
     container_name: mongo
     ports:
       - 27017:27017
     volumes:
+<<<<<<< HEAD
       #- ./data:/data/db
       - ./docker-entrypoint-initdb.d/add_data.sh:/docker-entrypoint-initdb.d/add_data.sh:ro
       - ./mongo_data/:/mongo_data
@@ -66,6 +75,12 @@ services:
         MONGO_INITDB_DATABASE: sawcer
     #   MONGO_INITDB_ROOT_USERNAME: root
     #   MONGO_INITDB_ROOT_PASSWORD: example
+=======
+      - ./docker-entrypoint-initdb.d/add_data.sh:/docker-entrypoint-initdb.d/add_data.sh:ro
+      - datavolume:/pygeoapi/tests/data
+    environment:
+        MONGO_INITDB_DATABASE: pop_places
+>>>>>>> ab163b2d14b2341eaa3d36d4b164bae6f096a9a8
 
   mongo-express:
     image: mongo-express
@@ -77,6 +92,7 @@ services:
       - mongo
     ports:
       - 8081:8081
+<<<<<<< HEAD
     # environment:
     #   ME_CONFIG_MONGODB_ADMINUSERNAME: root
     #   ME_CONFIG_MONGODB_ADMINPASSWORD: example
@@ -86,4 +102,10 @@ services:
 
 volumes:
   mongo_data: {}
+=======
+
+
+volumes:
+  datavolume: {}
+>>>>>>> ab163b2d14b2341eaa3d36d4b164bae6f096a9a8
 
