@@ -493,17 +493,17 @@ resources:
               id_field: id
               layer: OGRGeoJSON
 
-    demo:
+    sawcer:
         type: collection
-        title: MongoDB 
-        description: Demo data from MongoDB
+        title: Shops and Products 
+        description: SEARCH & FIND & SHARE where to get ingredients in local shops
         keywords:
             - cases
         links:
             - type: text/html
               rel: canonical
               title: information
-              href: http://www.naturalearthdata.com/
+              href: https://www.sawcer.com/
               hreflang: en-US
         extents:
             spatial:
@@ -515,8 +515,8 @@ resources:
         providers:
             - type: feature
               name: MongoDB
-              data: mongodb://mongo:27017/demo
-              collection: collectionname
+              data: mongodb://mongo:27017/sawcer
+              collection: shops
 
 
     hello-world:

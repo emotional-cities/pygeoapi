@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mongoimport --db demo -c collectionname --file "/mongo_data/output.geojson" --jsonArray
+mongoimport --db sawcer -c shops --file "/mongo_data/output.geojson" --jsonArray
