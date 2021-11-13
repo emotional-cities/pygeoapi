@@ -41,6 +41,8 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - /etc/letsencrypt/:/etc/letsencrypt/
+      - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
+      - ./nginx/letsencrypt/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
     container_name: nginx
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     #network_mode: "host" 
