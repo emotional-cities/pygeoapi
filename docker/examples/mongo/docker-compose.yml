@@ -30,6 +30,20 @@
 version: '3.3'
 
 services:
+
+  nginx: 
+    image: nginx:latest
+    container_name: production_nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/error.log:/etc/nginx/error_log.log
+      - ./nginx/cache/:/etc/nginx/cache
+      - /etc/letsencrypt/:/etc/letsencrypt/
+    ports:
+      - 80:80
+      - 443:443
+
+
   pygeoapi:
     image: geopython/pygeoapi:0.11.0
 
@@ -38,8 +52,8 @@ services:
     entrypoint:
       - /mongo-entrypoint.sh
 
-    ports:
-      - 80:80
+    #ports:
+     # - 80:5000
 
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
