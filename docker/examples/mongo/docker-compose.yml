@@ -41,7 +41,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - /etc/letsencrypt/:/etc/letsencrypt/
-      container_name: nginx
+    container_name: nginx
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     network_mode: "host" 
     restart: unless-stopped
