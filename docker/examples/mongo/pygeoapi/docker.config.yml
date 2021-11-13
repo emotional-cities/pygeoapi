@@ -39,6 +39,7 @@ server:
         host: 0.0.0.0
         port: 80
     url: http://18.156.191.178/
+    #url: http://localhost:5000
     mimetype: application/json; charset=UTF-8
     encoding: utf-8
     language: en-US
