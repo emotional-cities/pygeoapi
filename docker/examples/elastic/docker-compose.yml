@@ -40,8 +40,8 @@ services:
     entrypoint:
       - /es-entrypoint.sh
 
-    ports:
-      - 5000:80
+    # ports:
+    #   - 5000:80
 
     volumes:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
