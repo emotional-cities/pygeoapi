@@ -82,6 +82,8 @@ services:
     environment:
       ELASTICSEARCH_URL: http://elastic:9200
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
+      SERVER_BASEPATH: /dashboard
+      SERVER_HOST: emotional.byteroad.net
 
   nginx:
     image: nginx:stable-alpine
