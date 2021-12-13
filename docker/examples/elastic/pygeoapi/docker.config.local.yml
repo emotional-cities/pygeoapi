@@ -34,8 +34,8 @@
 server:
     bind:
         host: 0.0.0.0
-        port: 80
-    url: https://emotional.byteroad.net/
+        port: 5000
+    url: http://localhost:5000/
     mimetype: application/json; charset=UTF-8
     encoding: utf-8
     gzip: false
@@ -72,7 +72,7 @@ metadata:
         url: https://creativecommons.org/licenses/by/4.0/
     provider:
         name: ByteRoad
-        url: https://pygeoapi.io
+        url: https://byteroad.net
     contact:
         name: ByteRoad
         position: Maintainer
@@ -166,3 +166,4 @@ resources:
               data: http://elastic_search:9200/obs
               id_field: fid
               time_field: datetime
+
