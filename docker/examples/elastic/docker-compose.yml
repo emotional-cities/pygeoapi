@@ -97,9 +97,10 @@ services:
       - /etc/letsencrypt/:/etc/letsencrypt/
       - /etc/ssl/certs/dhparam.pem:/etc/ssl/certs/dhparam.pem
       - ./nginx/options-ssl-nginx.conf:/etc/options-ssl-nginx.conf
-    #container_name: nginx
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-    #network_mode: "host" 
+    networks:
+      - proxynet
+      - default
     restart: unless-stopped
     depends_on:
       - pygeoapi
