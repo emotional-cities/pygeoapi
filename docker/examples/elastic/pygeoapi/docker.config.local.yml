@@ -112,7 +112,7 @@ resources:
               hreflang: en-US
         extents:
             spatial:
-                bbox: [-9.1353880000000007,38.7098030000000008,-9.1282750000000004,38.7172610000000006]
+                bbox: [-180,-90,180,90]
                 crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
         providers:
             - type: feature
@@ -122,20 +122,20 @@ resources:
               id_field: fid
             - type: tile
               name: MVT
-              # data: http://minio:9000/obs/{z}/{x}/{y}
-              data:  /pygeoapi/obs
+              data: http://minio:9000/obs/{z}/{x}/{y}
+              #data: tests/data/tiles/obs
               options:
-              metadata_format: tilejson
-              bounds: [[-180.0,-90.0],[180.0,90.0]]
-              zoom:
+                metadata_format: tilejson # default | tilejson
+                bounds: [[-9.1353880000000007, 38.7098030000000008],[-9.1282750000000004, 38.7172610000000006]]
+                zoom:
                     min: 0
-                    max: 11
-              schemes:
-                    #- WebMercatorQuad
+                    max: 16
+                schemes:
                     - WorldCRS84Quad
               format: 
                     name: pbf
                     mimetype: application/vnd.mapbox-vector-tile
+
     obs_rec:
         type: collection
         title: Lisbon_20210912_pr

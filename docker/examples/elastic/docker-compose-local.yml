@@ -46,7 +46,7 @@ services:
       - ./pygeoapi/docker.config.local.yml:/pygeoapi/local.config.yml
       - ./pygeoapi/es-entrypoint.sh:/es-entrypoint.sh
       - ./pygeoapi/wait-for-elasticsearch.sh:/wait-for-elasticsearch.sh
-      - /home/joana/projects/EC/data/obs:/pygeoapi/obs
+      #- /home/joana/git/pygeoapi/tests/data/tiles/obs:/pygeoapi/tests/data/tiles/obs
     networks:
       - proxynet
       - default
