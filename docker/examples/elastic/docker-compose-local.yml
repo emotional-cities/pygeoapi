@@ -35,13 +35,10 @@ services:
   pygeoapi:
     image: geopython/pygeoapi:latest
     container_name: pygeoapi_es
-    environment:
-      PORT: 5000
-      URL: http://localhost:5000/
     entrypoint:
       - /es-entrypoint.sh
     ports:
-      - 5000:80
+      - 80:80
     volumes:
       - ./pygeoapi/docker.config.local.yml:/pygeoapi/local.config.yml
       - ./pygeoapi/es-entrypoint.sh:/es-entrypoint.sh
