@@ -42,9 +42,12 @@ until $(curl -sSf -XGET --insecure 'http://localhost:9200/_cluster/health?wait_f
     printf 'No status yellow from ES, trying again in 10 seconds \n'
     sleep 10
 done
-echo "Elasticsearch seems to be working - Adding data to ES"
 
-python3 /load_es_data.py /usr/share/elasticsearch/data/obs.geojson fid
+dataset="${DATASET:-obs}"
+
+echo "Elasticsearch seems to be working - Adding $dataset to ES"
+
+python3 /load_es_data.py /usr/share/elasticsearch/data/"$dataset".geojson fid
 
 echo "Seems that data was loaded"
 
