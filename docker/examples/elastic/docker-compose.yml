@@ -39,6 +39,9 @@ services:
     entrypoint:
       - /es-entrypoint.sh
 
+    environment:
+      - "DATASET=masked"
+
     networks:
       - proxynet
       - default
@@ -63,6 +66,7 @@ services:
        - "discovery.type=single-node"
        - bootstrap.memory_lock=true
        - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+       - "DATASET=masked"
     ulimits:
        memlock:
          soft: -1
