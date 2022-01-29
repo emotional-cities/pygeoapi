@@ -91,7 +91,7 @@ metadata:
 
 resources:
 
-    obs:
+    DATASET:
         type: collection
         title: Lisbon_20210912
         description: Environmental measurements in Lisbon - dry run.
@@ -118,12 +118,12 @@ resources:
             - type: feature
               name: Elasticsearch
               #Note elastic_search is the docker container of ES the name is defined in the docker-compose.yml
-              data: http://elastic_search:9200/obs
+              data: http://elastic_search:9200/DATASET
               id_field: fid
             - type: tile
               name: MVT
-              data: http://minio:9000/obs/{z}/{x}/{y}
-              #data: tests/data/tiles/obs
+              data: http://minio:9000/DATASET/{z}/{x}/{y}
+              #data: tests/data/tiles/DATASET
               options:
                 metadata_format: tilejson # default | tilejson
                 bounds: [[-9.1353880000000007, 38.7098030000000008],[-9.1282750000000004, 38.7172610000000006]]
@@ -136,7 +136,7 @@ resources:
                     name: pbf
                     mimetype: application/vnd.mapbox-vector-tile
 
-    obs_rec:
+    DATASET_rec:
         type: collection
         title: Lisbon_20210912_pr
         description: Environmental measurements in Lisbon - dry run.
@@ -163,6 +163,6 @@ resources:
             - type: record
               name: Elasticsearch
               #Note elastic_search is the docker container of ES the name is defined in the docker-compose.yml
-              data: http://elastic_search:9200/obs
+              data: http://elastic_search:9200/DATASET
               id_field: fid
               time_field: datetime
