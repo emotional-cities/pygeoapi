@@ -163,7 +163,7 @@ resources:
             - type: record
               name: Elasticsearch
               #Note elastic_search is the docker container of ES the name is defined in the docker-compose.yml
-              data: http://elastic_search:9200/DATASET
+              data: http://elastic_search:9200/DATASET_metadata
               id_field: fid
               time_field: datetime
 

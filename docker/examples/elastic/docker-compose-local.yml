@@ -85,6 +85,19 @@ services:
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
       SERVER_BASEPATH: /dashboard
 
+  logstash:
+    build: ./logstash
+    container_name: logstash
+    environment:
+      ELASTICSEARCH_URL: http://elastic:9200
+      ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
+      XPACK_MONITORING_ENABLED: 'false'
+      DATASET: 'masked'
+    links:
+      - elastic_search
+    depends_on:
+      - elastic_search
+
 volumes:
   elastic_search_data: {}
 
