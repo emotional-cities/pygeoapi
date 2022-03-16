@@ -65,6 +65,9 @@ until [ "$health" = 'yellow'  ] || [ "$health" = 'green'  ]  ; do
     sleep 10
 done
 
+# Adding some extra time to populate indexes
+sleep 30
+
 >&2 echo "Elasticsearch is up"
 
 

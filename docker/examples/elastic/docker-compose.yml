@@ -109,9 +109,9 @@ services:
     depends_on:
       - pygeoapi
 
-  logstash:
+  metadata_logstash:
     build: ./logstash
-    container_name: logstash
+    container_name: metadata_logstash
     environment:
       ELASTICSEARCH_URL: http://elastic:9200
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
@@ -121,6 +121,22 @@ services:
       - elastic_search
     depends_on:
       - elastic_search
+
+  geopackage_pusher:
+    build: ./gdal
+    container_name: geopackage_pusher
+    volumes:
+      - ./gdal/data:/data
+    links:
+      - elastic_search
+    depends_on:
+      - elastic_search
+    command: bash -c "/wait && /docker-entrypoint.sh"
+    environment:
+      - WAIT_HOSTS=elastic_search:9200
+      - WAIT_TIMEOUT=600
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
 
 
 volumes:
