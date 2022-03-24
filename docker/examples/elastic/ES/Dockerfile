@@ -41,13 +41,13 @@ USER root
 COPY docker-entrypoint.sh  /docker-entrypoint.sh
 COPY add_data.sh /add_data.sh
 
-COPY ./data/* ${DATA_FOLDER}/
+#COPY ./data/* ${DATA_FOLDER}/
 
 RUN yum install -y wget
 
 RUN wget https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O bin/wait-for-it.sh
 RUN chmod +x bin/wait-for-it.sh
-RUN wget https://raw.githubusercontent.com/geopython/pygeoapi/master/tests/data/ne_110m_populated_places_simple.geojson -O ${DATA_FOLDER}/ne_110m_populated_places_simple.geojson
+# RUN wget https://raw.githubusercontent.com/geopython/pygeoapi/master/tests/data/ne_110m_populated_places_simple.geojson -O ${DATA_FOLDER}/ne_110m_populated_places_simple.geojson
 RUN wget https://raw.githubusercontent.com/geopython/pygeoapi/master/tests/load_es_data.py -O /load_es_data.py
 
 RUN echo "xpack.security.enabled: false" >> config/elasticsearch.yml

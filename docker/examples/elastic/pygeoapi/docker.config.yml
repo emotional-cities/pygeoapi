@@ -163,7 +163,7 @@ resources:
             - type: feature
               name: Elasticsearch
               data: http://elastic_search:9200/activity_level_ldn
-              id_field: ogc_fid
+              id_field: GSS_CODE
               format:
                     name: pbf
                     mimetype: application/vnd.mapbox-vector-tile
@@ -195,7 +195,7 @@ resources:
             - type: feature
               name: Elasticsearch
               data: http://elastic_search:9200/cardivasular_disease_ldn
-              id_field: ogc_fid
+              id_field: GSS_CODE
               format:
                     name: pbf
                     mimetype: application/vnd.mapbox-vector-tile

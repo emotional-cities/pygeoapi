@@ -74,6 +74,7 @@ services:
       - 9200:9200
     volumes:
       - elastic_search_data:/usr/share/elasticsearch/data
+      - ./ES/data:/in
 
   kib01:
     image: docker.elastic.co/kibana/kibana:7.5.1
@@ -102,17 +103,13 @@ services:
     build: ./gdal
     container_name: geopackage_pusher
     volumes:
-      - ./gdal/data:/data
+      - ./gdal/data:/in
+      - ./ES/data:/out
     links:
       - elastic_search
     depends_on:
       - elastic_search
-    command: bash -c "/wait && /docker-entrypoint.sh"
-    environment:
-      - WAIT_HOSTS=elastic_search:9200
-      - WAIT_TIMEOUT=600
-      - WAIT_SLEEP_INTERVAL=30
-      - WAIT_HOST_CONNECT_TIMEOUT=30
+    command: bash -c "/docker-entrypoint.sh"
 
 volumes:
   elastic_search_data: {}

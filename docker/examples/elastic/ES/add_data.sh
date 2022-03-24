@@ -45,11 +45,36 @@ done
 
 dataset="${DATASET:-obs}"
 
+## ADDING DATA *************************************************
+
 echo "Elasticsearch seems to be working - Adding $dataset to ES"
 
-python3 /load_es_data.py /usr/share/elasticsearch/data/"$dataset".geojson fid
+python3 /load_es_data.py /in/"$dataset".geojson fid
+
+# Waiting for geopackage_pusher container to create the file
+while ! test -f "/in/activity_level_ldn.geojson"; do
+  sleep 10
+  echo "Still waiting"
+done
+python3 /load_es_data.py /in/activity_level_ldn.geojson GSS_CODE
+
+# Waiting for geopackage_pusher container to create the file
+while ! test -f "/in/cardivasular_disease_ldn.geojson"; do
+  sleep 10
+  echo "Still waiting"
+done
+python3 /load_es_data.py /in/cardivasular_disease_ldn.geojson GSS_CODE
+
+# Waiting for geopackage_pusher container to create the file
+while ! test -f "/in/tweet_count_sample.geojson"; do
+  sleep 10
+  echo "Still waiting"
+done
+python3 /load_es_data.py /in/tweet_count_sample.geojson id
 
 echo "Seems that data was loaded"
+
+## *************************************************************
 
 # create a new index with the settings in es_index_config.json
 #curl -v --insecure --user elastic:changeme -XPUT '0.0.0.0:9200/test?pretty' -H 'Content-Type: application/json' -d @es_index_config.json
