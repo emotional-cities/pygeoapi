@@ -103,13 +103,8 @@ resources:
         links:
             - type: text/html
               rel: canonical
-              title: information
-              href: http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-populated-places/
-              hreflang: en-US
-            - type: application/gzip
-              rel: canonical
-              title: download
-              href: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_populated_places_simple.zip
+              title: metadata
+              href: https://emotional.byteroad.net/collections/ec_catalog/items/9b32e1572c4f4c69861d0e50cf6782
               hreflang: en-US
         extents:
             spatial:
@@ -136,13 +131,8 @@ resources:
         links:
             - type: text/html
               rel: canonical
-              title: information
-              href: http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-populated-places/
-              hreflang: en-US
-            - type: application/gzip
-              rel: canonical
-              title: download
-              href: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_populated_places_simple.zip
+              title: metadata
+              href: https://emotional.byteroad.net/collections/ec_catalog/items/6c22e1572c4f4a44121d0e50cf6141
               hreflang: en-US
         extents:
             spatial:
@@ -169,13 +159,8 @@ resources:
         links:
             - type: text/html
               rel: canonical
-              title: information
-              href: http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-populated-places/
-              hreflang: en-US
-            - type: application/gzip
-              rel: canonical
-              title: download
-              href: http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_populated_places_simple.zip
+              title: metadata
+              href: https://emotional.byteroad.net/collections/ec_catalog/items/11v2e1549c2t5669861d0e50cf6h66
               hreflang: en-US
         extents:
             spatial:
