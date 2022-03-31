@@ -204,7 +204,7 @@ resources:
             - type: record
               name: Elasticsearch
               data: http://elastic_search:9200/ec_catalog
-              id_field: fid
+              id_field: id
               time_field: datetime
 
     DATASET:
