@@ -72,6 +72,9 @@ while ! test -f "/in/tweet_count_sample.geojson"; do
 done
 python3 /load_es_data.py /in/tweet_count_sample.geojson id
 
+echo "Pushing EC metadata"
+python3 /load_es_data.py /in/metadata/ec_catalog.geojson id
+
 echo "Seems that data was loaded"
 
 ## *************************************************************
