@@ -74,6 +74,7 @@ services:
       - 9200:9200
     volumes:
       - elastic_search_data:/usr/share/elasticsearch/data
+      - ./ES/data:/in
 
   kib01:
     image: docker.elastic.co/kibana/kibana:7.5.1
@@ -85,9 +86,9 @@ services:
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
       SERVER_BASEPATH: /dashboard
 
-  logstash:
+  metadata_logstash:
     build: ./logstash
-    container_name: logstash
+    container_name: metadata_logstash
     environment:
       ELASTICSEARCH_URL: http://elastic:9200
       ELASTICSEARCH_HOSTS: '["http://elastic:9200"]'
@@ -97,6 +98,18 @@ services:
       - elastic_search
     depends_on:
       - elastic_search
+
+  geopackage_pusher:
+    build: ./gdal
+    container_name: geopackage_pusher
+    volumes:
+      - ./gdal/data:/in
+      - ./ES/data:/out
+    links:
+      - elastic_search
+    depends_on:
+      - elastic_search
+    command: bash -c "/docker-entrypoint.sh"
 
 volumes:
   elastic_search_data: {}
