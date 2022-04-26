@@ -1,0 +1,134 @@
+# =================================================================
+#
+# Authors: Just van den Broecke <justb4@gmail.com>>
+#          Jorge Samuel Mendes de Jesus <jorge.dejesus@geocat.net>
+#          Tom Kraldis <tomkralidis@gmail.com>
+#
+# Copyright (c) 2019 Just van den Broecke
+# Copyright (c) 2019 Jorge Samuel Mendes de Jesus
+# Copyright (c) 2020 Tom Kralidis
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use,
+# copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following
+# conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+# =================================================================
+
+server:
+    bind:
+        host: 0.0.0.0
+        port: 80
+    url: http://localhost/
+    mimetype: application/json; charset=UTF-8
+    encoding: utf-8
+    gzip: false
+    language: en-US
+    cors: true
+    pretty_print: true
+    limit: 10
+    # templates: /path/to/templates
+    map:
+        url: https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+
+logging:
+    level: ERROR
+    #logfile: /tmp/pygeoapi.log
+
+metadata:
+    identification:
+        title: pygeoapi eMOTIONAL Cities instance
+        description: Provides an API to eMOTIONAL Cities geospatial data
+        keywords:
+            - geospatial
+            - data
+            - api
+            - eMOTIONAL Cities
+            - Neuroscience
+            - Urban Planning
+            - H2020
+        keywords_type: theme
+        terms_of_service: https://creativecommons.org/licenses/by/4.0/
+        url: http://example.org
+    license:
+        name: CC-BY 4.0 license
+        url: https://creativecommons.org/licenses/by/4.0/
+    provider:
+        name: ByteRoad
+        url: https://byteroad.net
+    contact:
+        name: ByteRoad
+        position: Maintainer
+        address: R. Ricardo Espirito Santo
+        city: Lisbon
+        stateorprovince: Lisbon
+        postalcode: 1200
+        country: Portugal
+        phone: +xx-xxx-xxx-xxxx
+        fax: +xx-xxx-xxx-xxxx
+        email: info@byteroad.net
+        url: https://byteroad.net
+        hours: Hours of Service
+        instructions: During hours of service.  Off on weekends.
+        role: pointOfContact
+
+resources:
+
+
+    shops:
+        type: collection
+        title: Shops and Products 
+        description: SEARCH & FIND & SHARE where to get ingredients in local shops
+        keywords:
+            - shops
+        links:
+            - type: text/html
+              rel: canonical
+              title: information
+              href: https://www.sawcer.com/
+              hreflang: en-US
+        extents:
+            spatial:
+                bbox: [-180,-90,180,90]
+                crs: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+            temporal:
+                begin: 2011-11-11
+                end: null  # or empty
+        providers:
+            - type: feature
+              name: GeoJSON
+              data: /data/shops.geojson
+              #id_field: field_1
+            - type: tile
+              name: MVT
+              data: http://minio:9000/shops/{z}/{x}/{y}
+              #data: tests/data/tiles/DATASET
+              options:
+                metadata_format: tilejson # default | tilejson
+                bounds: [[2.0511765999999620,41.3248359999999977],[2.2500875000000629,41.4487499999999969]]
+                zoom:
+                    min: 0
+                    max: 16
+                schemes:
+                    - WorldCRS84Quad
+              format:
+                    name: pbf
+                    mimetype: application/vnd.mapbox-vector-tile
+

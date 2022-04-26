@@ -1,3 +1,8 @@
+docker/examples/data/shops/*
+docker/examples/data/masked/*
+docker/examples/data/.minio.sys/*
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
