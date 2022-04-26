@@ -114,9 +114,6 @@ resources:
               name: Elasticsearch
               data: http://elastic_search:9200/activity_level_ldn
               id_field: GSS_CODE
-              format:
-                    name: pbf
-                    mimetype: application/vnd.mapbox-vector-tile
 
     cardivasular_disease_ldn:
         type: collection
@@ -141,9 +138,6 @@ resources:
               name: Elasticsearch
               data: http://elastic_search:9200/cardivasular_disease_ldn
               id_field: GSS_CODE
-              format:
-                    name: pbf
-                    mimetype: application/vnd.mapbox-vector-tile
 
     tweet_count_sample:
         type: collection
@@ -168,9 +162,6 @@ resources:
               name: Elasticsearch
               data: http://elastic_search:9200/tweet_count_sample
               id_field: id
-              format:
-                    name: pbf
-                    mimetype: application/vnd.mapbox-vector-tile
 
     ec_catalog:
         type: collection
