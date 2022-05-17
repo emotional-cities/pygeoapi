@@ -115,5 +115,7 @@ ENV/
 #Eclipse project
 .project
 
+# Visual Studio Code settings
+*.code-workspace
 
 .DS_Store
