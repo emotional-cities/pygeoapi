@@ -45,6 +45,7 @@ services:
       - ./pygeoapi/docker.config.yml:/pygeoapi/local.config.yml
       - ./pygeoapi/mongo-entrypoint.sh:/mongo-entrypoint.sh
       - ./pygeoapi/wait-for-mongo.sh:/wait-for-mongo.sh
+      - ./mongo_data/:/mongo_data
     links:
       - mongo
     depends_on:
