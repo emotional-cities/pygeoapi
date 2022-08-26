@@ -517,7 +517,23 @@ resources:
               name: MongoDB
               data: mongodb://mongo:27017/sawcer
               collection: shops
+            #   id_field: id
 
+            - type: feature
+            #   name: OGR
+            #   data: 
+            #         source_type: GeoJSON
+            #         source: /mongo_data/shops-orig.geojson
+            #         source_srs: EPSG:4326
+            #         target_srs: EPSG:4326
+            #         source_capabilities:
+            #             paging: False
+            #         gdal_ogr_options:
+            #           EMPTY_AS_NULL: NO
+            #           GDAL_CACHEMAX: 64
+            #           CPL_DEBUG: NO  
+            #   id_field: id
+            #   layer: shops
 
     hello-world:
         type: process
